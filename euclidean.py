@@ -9,8 +9,8 @@ def oneNN(testData, trainData):
     for i in range(len(testData)):
         test = testData.ix[i]
         minDist = sys.maxsize
-        for j in range(len(trainData)):
-            train = trainData.ix[j]
+        for index, row in trainData.iterrows():
+            train = trainData.ix[index]
             dist = np.linalg.norm(train[1:] - test[1:])
             if dist < minDist:
                 minDist = dist
